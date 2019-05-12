@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B739568-F09C-4C4B-A783-A9750DFD9AE8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>GradingSystem.My.MyApplication</StartupObject>
+    <RootNamespace>GradingSystem</RootNamespace>
+    <AssemblyName>GradingSystem</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>GradingSystem.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>GradingSystem.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frm_dashboard.Designer.vb">
+      <DependentUpon>frm_dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_login.Designer.vb">
+      <DependentUpon>frm_login.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_password_setting.Designer.vb">
+      <DependentUpon>frm_password_setting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_password_setting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalClass.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="uc_courses.Designer.vb">
+      <DependentUpon>uc_courses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_courses.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_create_course.Designer.vb">
+      <DependentUpon>uc_create_course.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_create_course.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_create_student.Designer.vb">
+      <DependentUpon>uc_create_student.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_create_student.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_create_subject.Designer.vb">
+      <DependentUpon>uc_create_subject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_create_subject.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_create_teacher.Designer.vb">
+      <DependentUpon>uc_create_teacher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_create_teacher.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_create_section.Designer.vb">
+      <DependentUpon>uc_create_section.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_create_section.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_dashboard.Designer.vb">
+      <DependentUpon>uc_dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_dashboard.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_edit_course.Designer.vb">
+      <DependentUpon>uc_edit_course.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_edit_course.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_edit_section.Designer.vb">
+      <DependentUpon>uc_edit_section.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_edit_section.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_edit_student.Designer.vb">
+      <DependentUpon>uc_edit_student.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_edit_student.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_edit_subject.Designer.vb">
+      <DependentUpon>uc_edit_subject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_edit_subject.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_edit_teacher.Designer.vb">
+      <DependentUpon>uc_edit_teacher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_edit_teacher.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_encode_grades_sections.Designer.vb">
+      <DependentUpon>uc_encode_grades_sections.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_encode_grades_sections.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_encode_grades_student.Designer.vb">
+      <DependentUpon>uc_encode_grades_student.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_encode_grades_student.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_grades.Designer.vb">
+      <DependentUpon>uc_grades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_grades.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_students.Designer.vb">
+      <DependentUpon>uc_students.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_students.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_subjects.Designer.vb">
+      <DependentUpon>uc_subjects.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_subjects.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_teachers.Designer.vb">
+      <DependentUpon>uc_teachers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_teachers.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_year_section.Designer.vb">
+      <DependentUpon>uc_year_section.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_year_section.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frm_dashboard.resx">
+      <DependentUpon>frm_dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_login.resx">
+      <DependentUpon>frm_login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_password_setting.resx">
+      <DependentUpon>frm_password_setting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_courses.resx">
+      <DependentUpon>uc_courses.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_create_course.resx">
+      <DependentUpon>uc_create_course.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_create_student.resx">
+      <DependentUpon>uc_create_student.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_create_subject.resx">
+      <DependentUpon>uc_create_subject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_create_teacher.resx">
+      <DependentUpon>uc_create_teacher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_create_section.resx">
+      <DependentUpon>uc_create_section.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_dashboard.resx">
+      <DependentUpon>uc_dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_edit_course.resx">
+      <DependentUpon>uc_edit_course.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_edit_section.resx">
+      <DependentUpon>uc_edit_section.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_edit_student.resx">
+      <DependentUpon>uc_edit_student.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_edit_subject.resx">
+      <DependentUpon>uc_edit_subject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_edit_teacher.resx">
+      <DependentUpon>uc_edit_teacher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_encode_grades_sections.resx">
+      <DependentUpon>uc_encode_grades_sections.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_encode_grades_student.resx">
+      <DependentUpon>uc_encode_grades_student.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_grades.resx">
+      <DependentUpon>uc_grades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_students.resx">
+      <DependentUpon>uc_students.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_subjects.resx">
+      <DependentUpon>uc_subjects.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_teachers.resx">
+      <DependentUpon>uc_teachers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_year_section.resx">
+      <DependentUpon>uc_year_section.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\48358483_798681917138225_1751873261177667584_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\face0.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
