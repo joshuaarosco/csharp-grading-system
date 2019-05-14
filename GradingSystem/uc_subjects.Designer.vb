@@ -32,10 +32,10 @@ Partial Class uc_subjects
         Me.pnl_cover = New System.Windows.Forms.Panel()
         Me.lbl_load = New System.Windows.Forms.Label()
         Me.pnl_action = New System.Windows.Forms.Panel()
+        Me.btn_delete = New System.Windows.Forms.Button()
+        Me.btn_edit = New System.Windows.Forms.Button()
         Me.btn_close = New System.Windows.Forms.Button()
         Me.btn_encode = New System.Windows.Forms.Button()
-        Me.btn_edit = New System.Windows.Forms.Button()
-        Me.btn_delete = New System.Windows.Forms.Button()
         Me.pnl_refresh = New System.Windows.Forms.Panel()
         Me.lbl_refresh = New System.Windows.Forms.Label()
         Me.uc_edit_subject = New GradingSystem.uc_edit_subject()
@@ -158,6 +158,32 @@ Partial Class uc_subjects
         Me.pnl_action.Size = New System.Drawing.Size(763, 67)
         Me.pnl_action.TabIndex = 1
         '
+        'btn_delete
+        '
+        Me.btn_delete.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn_delete.FlatAppearance.BorderSize = 0
+        Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btn_delete.Location = New System.Drawing.Point(375, 14)
+        Me.btn_delete.Name = "btn_delete"
+        Me.btn_delete.Size = New System.Drawing.Size(115, 40)
+        Me.btn_delete.TabIndex = 5
+        Me.btn_delete.Text = "Delete"
+        Me.btn_delete.UseVisualStyleBackColor = False
+        '
+        'btn_edit
+        '
+        Me.btn_edit.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.btn_edit.FlatAppearance.BorderSize = 0
+        Me.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btn_edit.Location = New System.Drawing.Point(505, 14)
+        Me.btn_edit.Name = "btn_edit"
+        Me.btn_edit.Size = New System.Drawing.Size(115, 40)
+        Me.btn_edit.TabIndex = 4
+        Me.btn_edit.Text = "Edit"
+        Me.btn_edit.UseVisualStyleBackColor = False
+        '
         'btn_close
         '
         Me.btn_close.BackColor = System.Drawing.SystemColors.ControlLightLight
@@ -184,32 +210,6 @@ Partial Class uc_subjects
         Me.btn_encode.TabIndex = 2
         Me.btn_encode.Text = "View"
         Me.btn_encode.UseVisualStyleBackColor = False
-        '
-        'btn_edit
-        '
-        Me.btn_edit.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.btn_edit.FlatAppearance.BorderSize = 0
-        Me.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btn_edit.Location = New System.Drawing.Point(505, 14)
-        Me.btn_edit.Name = "btn_edit"
-        Me.btn_edit.Size = New System.Drawing.Size(115, 40)
-        Me.btn_edit.TabIndex = 4
-        Me.btn_edit.Text = "Edit"
-        Me.btn_edit.UseVisualStyleBackColor = False
-        '
-        'btn_delete
-        '
-        Me.btn_delete.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn_delete.FlatAppearance.BorderSize = 0
-        Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btn_delete.Location = New System.Drawing.Point(375, 14)
-        Me.btn_delete.Name = "btn_delete"
-        Me.btn_delete.Size = New System.Drawing.Size(115, 40)
-        Me.btn_delete.TabIndex = 5
-        Me.btn_delete.Text = "Delete"
-        Me.btn_delete.UseVisualStyleBackColor = False
         '
         'pnl_refresh
         '

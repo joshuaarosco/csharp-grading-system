@@ -32,10 +32,19 @@ Partial Class uc_students
         Me.pnl_cover = New System.Windows.Forms.Panel()
         Me.lbl_load = New System.Windows.Forms.Label()
         Me.uc_create_student = New GradingSystem.uc_create_student()
+        Me.pnl_refresh = New System.Windows.Forms.Panel()
+        Me.lbl_refresh = New System.Windows.Forms.Label()
+        Me.pnl_action = New System.Windows.Forms.Panel()
+        Me.btn_close = New System.Windows.Forms.Button()
+        Me.btn_delete = New System.Windows.Forms.Button()
+        Me.btn_edit = New System.Windows.Forms.Button()
+        Me.uc_edit_student = New GradingSystem.uc_edit_student()
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.pnl_cover.SuspendLayout()
+        Me.pnl_refresh.SuspendLayout()
+        Me.pnl_action.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -143,15 +152,98 @@ Partial Class uc_students
         Me.uc_create_student.Size = New System.Drawing.Size(763, 370)
         Me.uc_create_student.TabIndex = 18
         '
+        'pnl_refresh
+        '
+        Me.pnl_refresh.BackColor = System.Drawing.SystemColors.Control
+        Me.pnl_refresh.Controls.Add(Me.lbl_refresh)
+        Me.pnl_refresh.Location = New System.Drawing.Point(291, 264)
+        Me.pnl_refresh.Name = "pnl_refresh"
+        Me.pnl_refresh.Size = New System.Drawing.Size(200, 69)
+        Me.pnl_refresh.TabIndex = 20
+        '
+        'lbl_refresh
+        '
+        Me.lbl_refresh.AutoSize = True
+        Me.lbl_refresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_refresh.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.lbl_refresh.Location = New System.Drawing.Point(76, 29)
+        Me.lbl_refresh.Name = "lbl_refresh"
+        Me.lbl_refresh.Size = New System.Drawing.Size(56, 13)
+        Me.lbl_refresh.TabIndex = 0
+        Me.lbl_refresh.Text = "Refresh ..."
+        '
+        'pnl_action
+        '
+        Me.pnl_action.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.pnl_action.Controls.Add(Me.btn_close)
+        Me.pnl_action.Controls.Add(Me.btn_delete)
+        Me.pnl_action.Controls.Add(Me.btn_edit)
+        Me.pnl_action.Location = New System.Drawing.Point(12, 443)
+        Me.pnl_action.Name = "pnl_action"
+        Me.pnl_action.Size = New System.Drawing.Size(763, 67)
+        Me.pnl_action.TabIndex = 21
+        '
+        'btn_close
+        '
+        Me.btn_close.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_close.FlatAppearance.BorderSize = 0
+        Me.btn_close.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control
+        Me.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_close.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.btn_close.Location = New System.Drawing.Point(375, 14)
+        Me.btn_close.Name = "btn_close"
+        Me.btn_close.Size = New System.Drawing.Size(115, 40)
+        Me.btn_close.TabIndex = 4
+        Me.btn_close.Text = "Close"
+        Me.btn_close.UseVisualStyleBackColor = False
+        '
+        'btn_delete
+        '
+        Me.btn_delete.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn_delete.FlatAppearance.BorderSize = 0
+        Me.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control
+        Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_delete.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_delete.Location = New System.Drawing.Point(505, 14)
+        Me.btn_delete.Name = "btn_delete"
+        Me.btn_delete.Size = New System.Drawing.Size(115, 40)
+        Me.btn_delete.TabIndex = 3
+        Me.btn_delete.Text = "Delete"
+        Me.btn_delete.UseVisualStyleBackColor = False
+        '
+        'btn_edit
+        '
+        Me.btn_edit.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.btn_edit.FlatAppearance.BorderSize = 0
+        Me.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btn_edit.Location = New System.Drawing.Point(635, 14)
+        Me.btn_edit.Name = "btn_edit"
+        Me.btn_edit.Size = New System.Drawing.Size(115, 40)
+        Me.btn_edit.TabIndex = 2
+        Me.btn_edit.Text = "Edit"
+        Me.btn_edit.UseVisualStyleBackColor = False
+        '
+        'uc_edit_student
+        '
+        Me.uc_edit_student.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.uc_edit_student.Location = New System.Drawing.Point(12, 140)
+        Me.uc_edit_student.Name = "uc_edit_student"
+        Me.uc_edit_student.Size = New System.Drawing.Size(763, 370)
+        Me.uc_edit_student.TabIndex = 22
+        '
         'uc_students
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.uc_edit_student)
         Me.Controls.Add(Me.pnl_cover)
         Me.Controls.Add(Me.uc_create_student)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnl_refresh)
+        Me.Controls.Add(Me.pnl_action)
         Me.Controls.Add(Me.dgv_datas)
         Me.Name = "uc_students"
         Me.Size = New System.Drawing.Size(787, 523)
@@ -161,6 +253,9 @@ Partial Class uc_students
         Me.Panel2.PerformLayout()
         Me.pnl_cover.ResumeLayout(False)
         Me.pnl_cover.PerformLayout()
+        Me.pnl_refresh.ResumeLayout(False)
+        Me.pnl_refresh.PerformLayout()
+        Me.pnl_action.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -175,5 +270,12 @@ Partial Class uc_students
     Friend WithEvents uc_create_student As GradingSystem.uc_create_student
     Friend WithEvents pnl_cover As System.Windows.Forms.Panel
     Friend WithEvents lbl_load As System.Windows.Forms.Label
+    Friend WithEvents pnl_refresh As System.Windows.Forms.Panel
+    Friend WithEvents lbl_refresh As System.Windows.Forms.Label
+    Friend WithEvents pnl_action As System.Windows.Forms.Panel
+    Friend WithEvents btn_close As System.Windows.Forms.Button
+    Friend WithEvents btn_delete As System.Windows.Forms.Button
+    Friend WithEvents btn_edit As System.Windows.Forms.Button
+    Friend WithEvents uc_edit_student As GradingSystem.uc_edit_student
 
 End Class

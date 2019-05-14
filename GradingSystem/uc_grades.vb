@@ -26,7 +26,7 @@ Public Class uc_grades
         DataGridViewSelectionMode.FullRowSelect
         dgv_datas.MultiSelect = False
 
-        Table.Columns.Add("Subject Code", Type.GetType("System.String"))
+        Table.Columns.Add("SubjectCode", Type.GetType("System.String"))
         Table.Columns.Add("Subject", Type.GetType("System.String"))
         Table.Columns.Add("Teacher", Type.GetType("System.String"))
         Table.Columns.Add("Grade", Type.GetType("System.String"))
@@ -120,4 +120,14 @@ Public Class uc_grades
         Return status
     End Function
 
+    Private Sub txt_search_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_search.TextChanged
+        search()
+    End Sub
+
+    Sub search()
+        Dim data_view As New DataView(table)
+        data_view.RowFilter = String.Format("SubjectCode Like '%{0}%'", txt_search.Text) + " OR " + String.Format("Subject Like '%{0}%'", txt_search.Text) + " OR " + String.Format("Teacher Like '%{0}%'", txt_search.Text) + " OR " + String.Format("Grade Like '%{0}%'", txt_search.Text) + " OR " + String.Format("Status Like '%{0}%'", txt_search.Text)
+        Console.WriteLine(data_view.RowFilter)
+        dgv_datas.DataSource = data_view
+    End Sub
 End Class

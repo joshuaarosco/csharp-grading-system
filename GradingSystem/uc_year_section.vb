@@ -45,7 +45,7 @@ Public Class uc_year_section
         Table.Columns.Add("Section", Type.GetType("System.String"))
         Table.Columns.Add("Adviser", Type.GetType("System.String"))
         Table.Columns.Add("SchoolYear", Type.GetType("System.String"))
-        Table.Columns.Add("Created At", Type.GetType("System.String"))
+        Table.Columns.Add("Last At", Type.GetType("System.String"))
         dgv_datas.DataSource = Table
 
         MysqlConn = New MySqlConnection

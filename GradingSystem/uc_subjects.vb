@@ -10,7 +10,10 @@ Public Class uc_subjects
     Dim SubjectName As String
     Dim SubjectCourse As String
     Dim YearLevel As String
+    Dim SubjectSemester As String
+    Dim SubjectUnits As String
     Dim SchoolYear As String
+    Dim SubjectTeacher As String
 
     Dim Table As New DataTable()
     Dim MyCommand As MySqlCommand
@@ -54,7 +57,7 @@ Public Class uc_subjects
         Table.Columns.Add("Units", Type.GetType("System.String"))
         Table.Columns.Add("SchoolYear", Type.GetType("System.String"))
         Table.Columns.Add("Teacher", Type.GetType("System.String"))
-        Table.Columns.Add("Created At", Type.GetType("System.String"))
+        Table.Columns.Add("Last Update", Type.GetType("System.String"))
         dgv_datas.DataSource = Table
 
         MysqlConn = New MySqlConnection
@@ -109,7 +112,10 @@ Public Class uc_subjects
             Dim subject_name As Object = dgv_datas.Rows(e.RowIndex).Cells(2).Value
             Dim course As Object = dgv_datas.Rows(e.RowIndex).Cells(3).Value
             Dim year_level As Object = dgv_datas.Rows(e.RowIndex).Cells(4).Value
+            Dim semester As Object = dgv_datas.Rows(e.RowIndex).Cells(5).Value
+            Dim units As Object = dgv_datas.Rows(e.RowIndex).Cells(6).Value
             Dim school_year As Object = dgv_datas.Rows(e.RowIndex).Cells(7).Value
+            Dim teacher As Object = dgv_datas.Rows(e.RowIndex).Cells(8).Value
 
             Console.WriteLine("Im the value : " + subject_id)
             If IsDBNull(subject_id) Then
@@ -121,7 +127,10 @@ Public Class uc_subjects
                 SubjectName = subject_name
                 SubjectCourse = course
                 YearLevel = year_level
+                SubjectSemester = semester
+                SubjectUnits = units
                 SchoolYear = school_year
+                SubjectTeacher = teacher
             End If
         End If
     End Sub
@@ -191,8 +200,15 @@ Public Class uc_subjects
     Private Sub btn_edit_Click(sender As System.Object, e As System.EventArgs) Handles btn_edit.Click
         uc_edit_subject.Visible = True
         uc_create_subject.Visible = False
-        uc_edit_subject.cb_year_level.Text = YearLevel
+        uc_edit_subject.txt_subject_code.Text = SubjectCode
+        uc_edit_subject.txt_subject.Text = SubjectName
+        uc_edit_subject.cb_course.SelectedValue = SubjectCourse
+        uc_edit_subject.cb_year_level.SelectedValue = YearLevel
+        uc_edit_subject.txt_semester.Text = SubjectSemester
+        uc_edit_subject.txt_units.Text = SubjectUnits
         uc_edit_subject.mtxt_school_year.Text = SchoolYear
+        uc_edit_subject.cb_teacher.Text = SubjectTeacher
+        uc_edit_subject.SubjectId = SubjectId
 
         pnl_refresh.Visible = True
         pnl_action.Visible = False
