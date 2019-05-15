@@ -39,12 +39,15 @@ Partial Class uc_teachers
         Me.btn_edit = New System.Windows.Forms.Button()
         Me.uc_edit_teacher = New GradingSystem.uc_edit_teacher()
         Me.uc_create_teacher = New GradingSystem.uc_create_teacher()
+        Me.pb_refresh = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.pnl_cover.SuspendLayout()
         Me.pnl_refresh.SuspendLayout()
         Me.pnl_action.SuspendLayout()
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -121,6 +124,7 @@ Partial Class uc_teachers
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel3.Controls.Add(Me.pb_refresh)
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(787, 50)
@@ -235,6 +239,16 @@ Partial Class uc_teachers
         Me.uc_create_teacher.Size = New System.Drawing.Size(763, 370)
         Me.uc_create_teacher.TabIndex = 13
         '
+        'pb_refresh
+        '
+        Me.pb_refresh.BackgroundImage = Global.GradingSystem.My.Resources.Resources.refresh_flat1
+        Me.pb_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pb_refresh.Location = New System.Drawing.Point(745, 10)
+        Me.pb_refresh.Name = "pb_refresh"
+        Me.pb_refresh.Size = New System.Drawing.Size(30, 30)
+        Me.pb_refresh.TabIndex = 20
+        Me.pb_refresh.TabStop = False
+        '
         'uc_teachers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -255,11 +269,13 @@ Partial Class uc_teachers
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
         Me.pnl_cover.ResumeLayout(False)
         Me.pnl_cover.PerformLayout()
         Me.pnl_refresh.ResumeLayout(False)
         Me.pnl_refresh.PerformLayout()
         Me.pnl_action.ResumeLayout(False)
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -281,5 +297,6 @@ Partial Class uc_teachers
     Friend WithEvents btn_close As System.Windows.Forms.Button
     Friend WithEvents btn_delete As System.Windows.Forms.Button
     Friend WithEvents btn_edit As System.Windows.Forms.Button
+    Friend WithEvents pb_refresh As System.Windows.Forms.PictureBox
 
 End Class

@@ -15,11 +15,31 @@ GradingSystem
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:GradingSystem.My.Resources.Resources._108719583_print_vector_icon_isolated_on_transparent_background_print_logo_concept">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:GradingSystem.My.Resources.Resources._48358483_798681917138225_1751873261177667584_n">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:GradingSystem.My.Resources.Resources.face0">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GradingSystem.My.Resources.Resources.print">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GradingSystem.My.Resources.Resources.refresh_flat">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GradingSystem.My.Resources.Resources.refresh_flat1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GradingSystem.My.Resources.Resources.refresh_flat2">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

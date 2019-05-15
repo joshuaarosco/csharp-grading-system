@@ -31,6 +31,7 @@ Public Class uc_year_section
         uc_edit_section.Visible = False
         pnl_refresh.Visible = False
         pnl_action.Visible = False
+        pb_refresh.Visible = False
     End Sub
 
     Private Function GetDataTable()
@@ -73,6 +74,7 @@ Public Class uc_year_section
     Private Sub lbl_load_Click(sender As System.Object, e As System.EventArgs) Handles lbl_load.Click
         dgv_datas.DataSource = GetDataTable()
         pnl_cover.Visible = False
+        pb_refresh.Visible = True
     End Sub
 
     Private Sub txt_search_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_search.TextChanged
@@ -204,5 +206,9 @@ Public Class uc_year_section
 
         pnl_refresh.Visible = True
         pnl_action.Visible = False
+    End Sub
+
+    Private Sub pb_refresh_Click(sender As System.Object, e As System.EventArgs) Handles pb_refresh.Click
+        refresh_table()
     End Sub
 End Class

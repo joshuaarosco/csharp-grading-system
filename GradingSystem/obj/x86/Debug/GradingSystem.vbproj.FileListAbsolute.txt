@@ -29,3 +29,4 @@ C:\Users\user\documents\visual studio 2010\Projects\GradingSystem\GradingSystem\
 C:\Users\user\documents\visual studio 2010\Projects\GradingSystem\GradingSystem\obj\x86\Debug\GradingSystem.uc_edit_subject.resources
 C:\Users\user\documents\visual studio 2010\Projects\GradingSystem\GradingSystem\obj\x86\Debug\GradingSystem.uc_edit_teacher.resources
 C:\Users\user\documents\visual studio 2010\Projects\GradingSystem\GradingSystem\obj\x86\Debug\GradingSystem.uc_archives.resources
+C:\Users\user\documents\visual studio 2010\Projects\GradingSystem\GradingSystem\obj\x86\Debug\GradingSystem.frm_print_student_info.resources

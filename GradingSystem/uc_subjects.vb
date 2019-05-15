@@ -40,6 +40,7 @@ Public Class uc_subjects
         End If
         pnl_action.Visible = False
         pnl_refresh.Visible = False
+        pb_refresh.Visible = False
     End Sub
 
     Private Function GetDataTable()
@@ -102,6 +103,7 @@ Public Class uc_subjects
         Else
             btn_create.Visible = True
         End If
+        pb_refresh.Visible = True
     End Sub
 
     Private Sub dgv_datas_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv_datas.CellContentClick
@@ -260,5 +262,9 @@ Public Class uc_subjects
             refresh_table()
             MessageBox.Show("Record successfully moved to Archive!")
         End If
+    End Sub
+
+    Private Sub pb_refresh_Click(sender As System.Object, e As System.EventArgs) Handles pb_refresh.Click
+        refresh_table()
     End Sub
 End Class

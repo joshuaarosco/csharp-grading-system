@@ -25,6 +25,7 @@ Public Class uc_courses
         uc_edit_course.Visible = False
         pnl_action.Visible = False
         pnl_refresh.Visible = False
+        pb_refresh.Visible = False
     End Sub
 
     Private Function GetDataTable()
@@ -89,6 +90,7 @@ Public Class uc_courses
     Private Sub lbl_load_Click(sender As System.Object, e As System.EventArgs) Handles lbl_load.Click
         dgv_datas.DataSource = GetDataTable()
         pnl_cover.Visible = False
+        pb_refresh.Visible = True
     End Sub
 
     Private Sub txt_search_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_search.TextChanged
@@ -190,6 +192,10 @@ Public Class uc_courses
 
     Private Sub lbl_refresh_Click(sender As System.Object, e As System.EventArgs) Handles lbl_refresh.Click
         pnl_refresh.Visible = False
+        refresh_table()
+    End Sub
+
+    Private Sub pb_refresh_Click(sender As System.Object, e As System.EventArgs) Handles pb_refresh.Click
         refresh_table()
     End Sub
 End Class

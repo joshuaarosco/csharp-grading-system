@@ -39,12 +39,15 @@ Partial Class uc_courses
         Me.lbl_refresh = New System.Windows.Forms.Label()
         Me.uc_edit_course = New GradingSystem.uc_edit_course()
         Me.uc_create_course = New GradingSystem.uc_create_course()
+        Me.pb_refresh = New System.Windows.Forms.PictureBox()
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.pnl_cover.SuspendLayout()
         Me.pnl_action.SuspendLayout()
         Me.pnl_refresh.SuspendLayout()
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgv_datas
@@ -120,6 +123,7 @@ Partial Class uc_courses
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel3.Controls.Add(Me.pb_refresh)
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(787, 50)
@@ -234,6 +238,16 @@ Partial Class uc_courses
         Me.uc_create_course.Size = New System.Drawing.Size(761, 370)
         Me.uc_create_course.TabIndex = 5
         '
+        'pb_refresh
+        '
+        Me.pb_refresh.BackgroundImage = Global.GradingSystem.My.Resources.Resources.refresh_flat2
+        Me.pb_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pb_refresh.Location = New System.Drawing.Point(745, 9)
+        Me.pb_refresh.Name = "pb_refresh"
+        Me.pb_refresh.Size = New System.Drawing.Size(30, 30)
+        Me.pb_refresh.TabIndex = 19
+        Me.pb_refresh.TabStop = False
+        '
         'uc_courses
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -254,11 +268,13 @@ Partial Class uc_courses
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
         Me.pnl_cover.ResumeLayout(False)
         Me.pnl_cover.PerformLayout()
         Me.pnl_action.ResumeLayout(False)
         Me.pnl_refresh.ResumeLayout(False)
         Me.pnl_refresh.PerformLayout()
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -280,5 +296,6 @@ Partial Class uc_courses
     Friend WithEvents uc_edit_course As GradingSystem.uc_edit_course
     Friend WithEvents pnl_refresh As System.Windows.Forms.Panel
     Friend WithEvents lbl_refresh As System.Windows.Forms.Label
+    Friend WithEvents pb_refresh As System.Windows.Forms.PictureBox
 
 End Class

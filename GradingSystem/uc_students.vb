@@ -15,10 +15,16 @@ Public Class uc_students
         uc_edit_student.Visible = False
         pnl_action.Visible = False
         pnl_refresh.Visible = False
+        pb_refresh.Visible = False
+        pb_print.Visible = False
     End Sub
 
     Private Sub btn_create_Click(sender As System.Object, e As System.EventArgs) Handles btn_create.Click
         uc_create_student.Visible = True
+        uc_edit_student.Visible = False
+        pnl_refresh.Visible = True
+        pnl_action.Visible = False
+        refresh_table()
     End Sub
 
     Private Function GetDataTable()
@@ -63,6 +69,8 @@ Public Class uc_students
     Private Sub lbl_load_Click(sender As System.Object, e As System.EventArgs) Handles lbl_load.Click
         dgv_datas.DataSource = GetDataTable()
         pnl_cover.Visible = False
+        pb_refresh.Visible = True
+        pb_print.Visible = True
     End Sub
 
     Private Sub txt_search_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_search.TextChanged
@@ -209,5 +217,59 @@ Public Class uc_students
         Finally
             MysqlConn.Dispose()
         End Try
+    End Sub
+
+    Private Sub pb_refresh_Click(sender As System.Object, e As System.EventArgs) Handles pb_refresh.Click
+        refresh_table()
+    End Sub
+
+    Private Sub btn_print_Click(sender As System.Object, e As System.EventArgs) Handles btn_view.Click
+        Dim frm = New frm_print_student_info
+        frm.StudentId = StudentId
+        MysqlConn = New MySqlConnection
+        MysqlConn.ConnectionString =
+            "server=localhost;userid=root;password=dev123;database=grading_system"
+
+        MysqlConn.Open()
+        MyQuery = "select * from grading_system.user where user_type = 'student' and id = '" & StudentId & "'"
+        MyCommand = New MySqlCommand(MyQuery, MysqlConn)
+        NewReader = MyCommand.ExecuteReader
+        While NewReader.Read
+            frm.txt_id_number.Text = NewReader("id_number")
+            frm.txt_fname.Text = NewReader("fname")
+            frm.txt_mname.Text = NewReader("mname")
+            frm.txt_lname.Text = NewReader("lname")
+            frm.txt_ext_name.Text = NewReader("extname")
+            frm.txt_course.Text = NewReader("course")
+            frm.txt_year.Text = NewReader("year_level")
+            frm.txt_section.Text = NewReader("section")
+            frm.txt_birthdate.Text = NewReader("birthdate")
+            frm.txt_gender.Text = NewReader("gender")
+            frm.txt_school_year.Text = NewReader("school_year")
+            frm.txt_username.Text = NewReader("username")
+            frm.txt_password.Text = NewReader("password")
+            frm.Show()
+        End While
+        MysqlConn.Close()
+    End Sub
+
+    Private bitmap As Bitmap
+
+    Private Sub pb_print_Click(sender As System.Object, e As System.EventArgs) Handles pb_print.Click
+        Dim height As Integer = dgv_datas.Height
+        dgv_datas.Height = dgv_datas.RowCount * dgv_datas.RowTemplate.Height
+        bitmap = New Bitmap(Me.dgv_datas.Width, Me.dgv_datas.Height)
+        dgv_datas.DrawToBitmap(bitmap, New Rectangle(0, 0, Me.dgv_datas.Width, Me.dgv_datas.Height))
+        ppd_student_list.Document = pd_student_list
+        ppd_student_list.PrintPreviewControl.Zoom = 1
+        ppd_student_list.Show()
+        dgv_datas.Height = height
+    End Sub
+
+    Private Sub pd_student_list_PrintPage(sender As System.Object, e As System.Drawing.Printing.PrintPageEventArgs) Handles pd_student_list.PrintPage
+        e.Graphics.DrawImage(bitmap, 0, 0)
+        Dim rectPrint As RectangleF = e.PageSettings.PrintableArea
+
+        If Me.dgv_datas.Height - rectPrint.Height > 0 Then e.HasMorePages = True
     End Sub
 End Class

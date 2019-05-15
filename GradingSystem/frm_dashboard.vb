@@ -103,9 +103,10 @@ Public Class frm_dashboard
     End Sub
 
     Private Sub btn_archives_Click(sender As System.Object, e As System.EventArgs) Handles btn_archives.Click
+        inactive_btns()
         UserTypeCondition()
-        txt_name.Text = GlobalClass.get_greetings() + " " + UserFullName
         hide_user_controls()
+        btn_archives.BackColor = Color.LightSlateGray
         uc_archives.Visible = True
         Me.Text = "  Archives"
     End Sub

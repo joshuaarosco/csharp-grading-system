@@ -38,15 +38,18 @@ Partial Class uc_subjects
         Me.btn_encode = New System.Windows.Forms.Button()
         Me.pnl_refresh = New System.Windows.Forms.Panel()
         Me.lbl_refresh = New System.Windows.Forms.Label()
+        Me.pb_refresh = New System.Windows.Forms.PictureBox()
         Me.uc_edit_subject = New GradingSystem.uc_edit_subject()
         Me.uc_encode_grades_sections = New GradingSystem.uc_encode_grades_sections()
         Me.uc_create_subject = New GradingSystem.uc_create_subject()
         Me.Panel1.SuspendLayout()
         Me.pnl_search.SuspendLayout()
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.pnl_cover.SuspendLayout()
         Me.pnl_action.SuspendLayout()
         Me.pnl_refresh.SuspendLayout()
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -121,6 +124,7 @@ Partial Class uc_subjects
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel3.Controls.Add(Me.pb_refresh)
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(787, 50)
@@ -231,6 +235,16 @@ Partial Class uc_subjects
         Me.lbl_refresh.TabIndex = 0
         Me.lbl_refresh.Text = "Refresh ..."
         '
+        'pb_refresh
+        '
+        Me.pb_refresh.BackgroundImage = Global.GradingSystem.My.Resources.Resources.refresh_flat1
+        Me.pb_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pb_refresh.Location = New System.Drawing.Point(745, 10)
+        Me.pb_refresh.Name = "pb_refresh"
+        Me.pb_refresh.Size = New System.Drawing.Size(30, 30)
+        Me.pb_refresh.TabIndex = 20
+        Me.pb_refresh.TabStop = False
+        '
         'uc_edit_subject
         '
         Me.uc_edit_subject.BackColor = System.Drawing.SystemColors.ControlLightLight
@@ -283,11 +297,13 @@ Partial Class uc_subjects
         Me.pnl_search.ResumeLayout(False)
         Me.pnl_search.PerformLayout()
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
         Me.pnl_cover.ResumeLayout(False)
         Me.pnl_cover.PerformLayout()
         Me.pnl_action.ResumeLayout(False)
         Me.pnl_refresh.ResumeLayout(False)
         Me.pnl_refresh.PerformLayout()
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -311,5 +327,6 @@ Partial Class uc_subjects
     Friend WithEvents pnl_refresh As System.Windows.Forms.Panel
     Friend WithEvents lbl_refresh As System.Windows.Forms.Label
     Friend WithEvents uc_edit_subject As GradingSystem.uc_edit_subject
+    Friend WithEvents pb_refresh As System.Windows.Forms.PictureBox
 
 End Class

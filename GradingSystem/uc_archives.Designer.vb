@@ -30,16 +30,24 @@ Partial Class uc_archives
         Me.dgv_datas = New System.Windows.Forms.DataGridView()
         Me.pnl_cover = New System.Windows.Forms.Panel()
         Me.lbl_load = New System.Windows.Forms.Label()
+        Me.pnl_action = New System.Windows.Forms.Panel()
+        Me.btn_close = New System.Windows.Forms.Button()
+        Me.btn_restore = New System.Windows.Forms.Button()
+        Me.pb_refresh = New System.Windows.Forms.PictureBox()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl_cover.SuspendLayout()
+        Me.pnl_action.SuspendLayout()
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel3.Controls.Add(Me.pb_refresh)
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
@@ -52,7 +60,7 @@ Partial Class uc_archives
         Me.Label1.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label1.Location = New System.Drawing.Point(12, 13)
+        Me.Label1.Location = New System.Drawing.Point(8, 11)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(83, 24)
         Me.Label1.TabIndex = 6
@@ -122,14 +130,66 @@ Partial Class uc_archives
         Me.lbl_load.TabIndex = 0
         Me.lbl_load.Text = "Click to load table"
         '
+        'pnl_action
+        '
+        Me.pnl_action.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.pnl_action.Controls.Add(Me.btn_restore)
+        Me.pnl_action.Controls.Add(Me.btn_close)
+        Me.pnl_action.Location = New System.Drawing.Point(12, 443)
+        Me.pnl_action.Name = "pnl_action"
+        Me.pnl_action.Size = New System.Drawing.Size(763, 67)
+        Me.pnl_action.TabIndex = 17
+        '
+        'btn_close
+        '
+        Me.btn_close.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_close.FlatAppearance.BorderSize = 0
+        Me.btn_close.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control
+        Me.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_close.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.btn_close.Location = New System.Drawing.Point(505, 14)
+        Me.btn_close.Name = "btn_close"
+        Me.btn_close.Size = New System.Drawing.Size(115, 40)
+        Me.btn_close.TabIndex = 4
+        Me.btn_close.Text = "Close"
+        Me.btn_close.UseVisualStyleBackColor = False
+        '
+        'btn_restore
+        '
+        Me.btn_restore.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.btn_restore.FlatAppearance.BorderSize = 0
+        Me.btn_restore.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_restore.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btn_restore.Location = New System.Drawing.Point(635, 14)
+        Me.btn_restore.Name = "btn_restore"
+        Me.btn_restore.Size = New System.Drawing.Size(115, 40)
+        Me.btn_restore.TabIndex = 2
+        Me.btn_restore.Text = "Restore"
+        Me.btn_restore.UseVisualStyleBackColor = False
+        '
+        'pb_refresh
+        '
+        Me.pb_refresh.BackgroundImage = Global.GradingSystem.My.Resources.Resources.refresh_flat1
+        Me.pb_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pb_refresh.Location = New System.Drawing.Point(745, 10)
+        Me.pb_refresh.Name = "pb_refresh"
+        Me.pb_refresh.Size = New System.Drawing.Size(30, 30)
+        Me.pb_refresh.TabIndex = 20
+        Me.pb_refresh.TabStop = False
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
+        '
         'uc_archives
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.pnl_cover)
-        Me.Controls.Add(Me.dgv_datas)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.pnl_action)
+        Me.Controls.Add(Me.dgv_datas)
         Me.Name = "uc_archives"
         Me.Size = New System.Drawing.Size(787, 523)
         Me.Panel3.ResumeLayout(False)
@@ -140,6 +200,8 @@ Partial Class uc_archives
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl_cover.ResumeLayout(False)
         Me.pnl_cover.PerformLayout()
+        Me.pnl_action.ResumeLayout(False)
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -151,5 +213,10 @@ Partial Class uc_archives
     Friend WithEvents dgv_datas As System.Windows.Forms.DataGridView
     Friend WithEvents pnl_cover As System.Windows.Forms.Panel
     Friend WithEvents lbl_load As System.Windows.Forms.Label
+    Friend WithEvents pnl_action As System.Windows.Forms.Panel
+    Friend WithEvents btn_close As System.Windows.Forms.Button
+    Friend WithEvents btn_restore As System.Windows.Forms.Button
+    Friend WithEvents pb_refresh As System.Windows.Forms.PictureBox
+    Friend WithEvents PrintDialog1 As System.Windows.Forms.PrintDialog
 
 End Class

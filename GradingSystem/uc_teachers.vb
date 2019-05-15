@@ -23,6 +23,7 @@ Public Class uc_teachers
         uc_edit_teacher.Visible = False
         pnl_action.Visible = False
         pnl_refresh.Visible = False
+        pb_refresh.Visible = False
     End Sub
 
     Private Function GetDataTable()
@@ -62,6 +63,7 @@ Public Class uc_teachers
     Private Sub lbl_load_Click(sender As System.Object, e As System.EventArgs) Handles lbl_load.Click
         dgv_datas.DataSource = GetDataTable()
         pnl_cover.Visible = False
+        pb_refresh.Visible = True
     End Sub
 
     Private Sub txt_search_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_search.TextChanged
@@ -200,5 +202,9 @@ Public Class uc_teachers
         Finally
             MysqlConn.Dispose()
         End Try
+    End Sub
+
+    Private Sub pb_refresh_Click(sender As System.Object, e As System.EventArgs) Handles pb_refresh.Click
+        refresh_table()
     End Sub
 End Class

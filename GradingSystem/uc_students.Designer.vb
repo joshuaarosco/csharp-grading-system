@@ -22,6 +22,7 @@ Partial Class uc_students
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(uc_students))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_create = New System.Windows.Forms.Button()
         Me.dgv_datas = New System.Windows.Forms.DataGridView()
@@ -31,20 +32,28 @@ Partial Class uc_students
         Me.txt_search = New System.Windows.Forms.TextBox()
         Me.pnl_cover = New System.Windows.Forms.Panel()
         Me.lbl_load = New System.Windows.Forms.Label()
-        Me.uc_create_student = New GradingSystem.uc_create_student()
         Me.pnl_refresh = New System.Windows.Forms.Panel()
         Me.lbl_refresh = New System.Windows.Forms.Label()
         Me.pnl_action = New System.Windows.Forms.Panel()
         Me.btn_close = New System.Windows.Forms.Button()
         Me.btn_delete = New System.Windows.Forms.Button()
         Me.btn_edit = New System.Windows.Forms.Button()
+        Me.btn_view = New System.Windows.Forms.Button()
+        Me.pd_student_list = New System.Drawing.Printing.PrintDocument()
+        Me.ppd_student_list = New System.Windows.Forms.PrintPreviewDialog()
+        Me.pb_print = New System.Windows.Forms.PictureBox()
+        Me.pb_refresh = New System.Windows.Forms.PictureBox()
         Me.uc_edit_student = New GradingSystem.uc_edit_student()
+        Me.uc_create_student = New GradingSystem.uc_create_student()
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.pnl_cover.SuspendLayout()
         Me.pnl_refresh.SuspendLayout()
         Me.pnl_action.SuspendLayout()
+        CType(Me.pb_print, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -90,6 +99,8 @@ Partial Class uc_students
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel3.Controls.Add(Me.pb_print)
+        Me.Panel3.Controls.Add(Me.pb_refresh)
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(787, 50)
@@ -144,14 +155,6 @@ Partial Class uc_students
         Me.lbl_load.TabIndex = 0
         Me.lbl_load.Text = "Click to load table"
         '
-        'uc_create_student
-        '
-        Me.uc_create_student.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.uc_create_student.Location = New System.Drawing.Point(12, 140)
-        Me.uc_create_student.Name = "uc_create_student"
-        Me.uc_create_student.Size = New System.Drawing.Size(763, 370)
-        Me.uc_create_student.TabIndex = 18
-        '
         'pnl_refresh
         '
         Me.pnl_refresh.BackColor = System.Drawing.SystemColors.Control
@@ -178,6 +181,7 @@ Partial Class uc_students
         Me.pnl_action.Controls.Add(Me.btn_close)
         Me.pnl_action.Controls.Add(Me.btn_delete)
         Me.pnl_action.Controls.Add(Me.btn_edit)
+        Me.pnl_action.Controls.Add(Me.btn_view)
         Me.pnl_action.Location = New System.Drawing.Point(12, 443)
         Me.pnl_action.Name = "pnl_action"
         Me.pnl_action.Size = New System.Drawing.Size(763, 67)
@@ -190,7 +194,7 @@ Partial Class uc_students
         Me.btn_close.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control
         Me.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_close.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.btn_close.Location = New System.Drawing.Point(375, 14)
+        Me.btn_close.Location = New System.Drawing.Point(245, 14)
         Me.btn_close.Name = "btn_close"
         Me.btn_close.Size = New System.Drawing.Size(115, 40)
         Me.btn_close.TabIndex = 4
@@ -204,7 +208,7 @@ Partial Class uc_students
         Me.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control
         Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_delete.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btn_delete.Location = New System.Drawing.Point(505, 14)
+        Me.btn_delete.Location = New System.Drawing.Point(375, 14)
         Me.btn_delete.Name = "btn_delete"
         Me.btn_delete.Size = New System.Drawing.Size(115, 40)
         Me.btn_delete.TabIndex = 3
@@ -217,12 +221,59 @@ Partial Class uc_students
         Me.btn_edit.FlatAppearance.BorderSize = 0
         Me.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btn_edit.Location = New System.Drawing.Point(635, 14)
+        Me.btn_edit.Location = New System.Drawing.Point(506, 14)
         Me.btn_edit.Name = "btn_edit"
         Me.btn_edit.Size = New System.Drawing.Size(115, 40)
         Me.btn_edit.TabIndex = 2
         Me.btn_edit.Text = "Edit"
         Me.btn_edit.UseVisualStyleBackColor = False
+        '
+        'btn_view
+        '
+        Me.btn_view.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.btn_view.FlatAppearance.BorderSize = 0
+        Me.btn_view.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control
+        Me.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_view.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_view.Location = New System.Drawing.Point(635, 14)
+        Me.btn_view.Name = "btn_view"
+        Me.btn_view.Size = New System.Drawing.Size(115, 40)
+        Me.btn_view.TabIndex = 5
+        Me.btn_view.Text = "View"
+        Me.btn_view.UseVisualStyleBackColor = False
+        '
+        'pd_student_list
+        '
+        '
+        'ppd_student_list
+        '
+        Me.ppd_student_list.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.ppd_student_list.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.ppd_student_list.ClientSize = New System.Drawing.Size(400, 300)
+        Me.ppd_student_list.Enabled = True
+        Me.ppd_student_list.Icon = CType(resources.GetObject("ppd_student_list.Icon"), System.Drawing.Icon)
+        Me.ppd_student_list.Name = "ppd_student_list"
+        Me.ppd_student_list.Visible = False
+        '
+        'pb_print
+        '
+        Me.pb_print.BackgroundImage = Global.GradingSystem.My.Resources.Resources.print
+        Me.pb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pb_print.Location = New System.Drawing.Point(709, 10)
+        Me.pb_print.Name = "pb_print"
+        Me.pb_print.Size = New System.Drawing.Size(30, 30)
+        Me.pb_print.TabIndex = 24
+        Me.pb_print.TabStop = False
+        '
+        'pb_refresh
+        '
+        Me.pb_refresh.BackgroundImage = Global.GradingSystem.My.Resources.Resources.refresh_flat1
+        Me.pb_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pb_refresh.Location = New System.Drawing.Point(745, 10)
+        Me.pb_refresh.Name = "pb_refresh"
+        Me.pb_refresh.Size = New System.Drawing.Size(30, 30)
+        Me.pb_refresh.TabIndex = 23
+        Me.pb_refresh.TabStop = False
         '
         'uc_edit_student
         '
@@ -230,7 +281,16 @@ Partial Class uc_students
         Me.uc_edit_student.Location = New System.Drawing.Point(12, 140)
         Me.uc_edit_student.Name = "uc_edit_student"
         Me.uc_edit_student.Size = New System.Drawing.Size(763, 370)
+        Me.uc_edit_student.StudentId = Nothing
         Me.uc_edit_student.TabIndex = 22
+        '
+        'uc_create_student
+        '
+        Me.uc_create_student.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.uc_create_student.Location = New System.Drawing.Point(12, 140)
+        Me.uc_create_student.Name = "uc_create_student"
+        Me.uc_create_student.Size = New System.Drawing.Size(763, 370)
+        Me.uc_create_student.TabIndex = 18
         '
         'uc_students
         '
@@ -248,6 +308,7 @@ Partial Class uc_students
         Me.Name = "uc_students"
         Me.Size = New System.Drawing.Size(787, 523)
         CType(Me.dgv_datas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -256,6 +317,8 @@ Partial Class uc_students
         Me.pnl_refresh.ResumeLayout(False)
         Me.pnl_refresh.PerformLayout()
         Me.pnl_action.ResumeLayout(False)
+        CType(Me.pb_print, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_refresh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -277,5 +340,10 @@ Partial Class uc_students
     Friend WithEvents btn_delete As System.Windows.Forms.Button
     Friend WithEvents btn_edit As System.Windows.Forms.Button
     Friend WithEvents uc_edit_student As GradingSystem.uc_edit_student
+    Friend WithEvents pb_refresh As System.Windows.Forms.PictureBox
+    Friend WithEvents btn_view As System.Windows.Forms.Button
+    Friend WithEvents pb_print As System.Windows.Forms.PictureBox
+    Friend WithEvents pd_student_list As System.Drawing.Printing.PrintDocument
+    Friend WithEvents ppd_student_list As System.Windows.Forms.PrintPreviewDialog
 
 End Class
