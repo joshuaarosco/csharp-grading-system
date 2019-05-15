@@ -66,9 +66,9 @@ Public Class uc_subjects
 
         MysqlConn.Open()
         If UserType = "teacher" Then
-            MyQuery = "select * from grading_system.subjects where teacher_id = '" & UserId & "' order by course "
+            MyQuery = "select * from grading_system.subjects where is_deleted = 'no' and teacher_id = '" & UserId & "' order by course "
         Else
-            MyQuery = "select * from grading_system.subjects order by course "
+            MyQuery = "select * from grading_system.subjects where is_deleted = 'no' order by course "
         End If
         MyCommand = New MySqlCommand(MyQuery, MysqlConn)
         NewReader = MyCommand.ExecuteReader
@@ -180,9 +180,9 @@ Public Class uc_subjects
 
         MysqlConn.Open()
         If UserType = "teacher" Then
-            MyQuery = "select * from grading_system.subjects where teacher_id = '" & UserId & "' order by course "
+            MyQuery = "select * from grading_system.subjects where is_deleted = 'no' and teacher_id = '" & UserId & "' order by course "
         Else
-            MyQuery = "select * from grading_system.subjects order by course "
+            MyQuery = "select * from grading_system.subjects where is_deleted = 'no' order by course "
         End If
         MyCommand = New MySqlCommand(MyQuery, MysqlConn)
         NewReader = MyCommand.ExecuteReader
@@ -212,5 +212,53 @@ Public Class uc_subjects
 
         pnl_refresh.Visible = True
         pnl_action.Visible = False
+    End Sub
+
+    Private Sub delete_record()
+        MysqlConn = New MySqlConnection
+        MysqlConn.ConnectionString =
+            "server=localhost;userid=root;password=dev123;database=grading_system"
+        Dim Reader As MySqlDataReader
+        Try
+            MysqlConn.Open()
+            Dim Query As String
+            Query = "update grading_system.subjects set is_deleted = 'yes' where id = '" & SubjectId & "' "
+            MyCommand = New MySqlCommand(Query, MysqlConn)
+            Reader = MyCommand.ExecuteReader
+            MysqlConn.Close()
+
+            MysqlConn = New MySqlConnection
+            MysqlConn.ConnectionString =
+                "server=localhost;userid=root;password=dev123;database=grading_system"
+            Dim ArchiveReader As MySqlDataReader
+            Try
+                MysqlConn.Open()
+                Dim ArchiveQuery As String
+                ArchiveQuery = "insert into grading_system.archives (reference_id,reference_keyname,reference,deleted_at) values ('" & SubjectId & "','" & SubjectName & "','subjects', '" & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") & "')"
+                MyCommand = New MySqlCommand(ArchiveQuery, MysqlConn)
+                ArchiveReader = MyCommand.ExecuteReader
+                MysqlConn.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            Finally
+                MysqlConn.Dispose()
+            End Try
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            MysqlConn.Dispose()
+        End Try
+    End Sub
+
+    Private Sub btn_delete_Click(sender As System.Object, e As System.EventArgs) Handles btn_delete.Click
+        Dim result As Integer = MessageBox.Show("You are about to delete a record, are you sure you want to proceed?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
+
+        ElseIf result = DialogResult.Yes Then
+            delete_record()
+            refresh_table()
+            MessageBox.Show("Record successfully moved to Archive!")
+        End If
     End Sub
 End Class

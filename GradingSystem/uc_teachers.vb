@@ -7,6 +7,9 @@ Public Class uc_teachers
     Dim NewReader As MySqlDataReader
     Dim MyQuery As String
 
+    Dim TeacherId As String
+    Dim TeacherName As String
+
     Private Sub btn_create_Click(sender As System.Object, e As System.EventArgs) Handles btn_create.Click
         uc_create_teacher.Visible = True
         uc_edit_teacher.Visible = False
@@ -39,7 +42,7 @@ Public Class uc_teachers
             "server=localhost;userid=root;password=dev123;database=grading_system"
 
         MysqlConn.Open()
-        MyQuery = "select * from grading_system.user where user_type = 'teacher' order by lname "
+        MyQuery = "select * from grading_system.user where is_deleted = 'no' and user_type = 'teacher' order by lname "
         MyCommand = New MySqlCommand(MyQuery, MysqlConn)
         NewReader = MyCommand.ExecuteReader
         While NewReader.Read
@@ -87,7 +90,7 @@ Public Class uc_teachers
             "server=localhost;userid=root;password=dev123;database=grading_system"
 
         MysqlConn.Open()
-        MyQuery = "select * from grading_system.user where user_type = 'teacher' order by lname "
+        MyQuery = "select * from grading_system.user where is_deleted = 'no' and user_type = 'teacher' order by lname "
         MyCommand = New MySqlCommand(MyQuery, MysqlConn)
         NewReader = MyCommand.ExecuteReader
         While NewReader.Read
@@ -102,7 +105,14 @@ Public Class uc_teachers
     End Sub
 
     Private Sub btn_delete_Click(sender As System.Object, e As System.EventArgs) Handles btn_delete.Click
+        Dim result As Integer = MessageBox.Show("You are about to delete a record, are you sure you want to proceed?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
 
+        ElseIf result = DialogResult.Yes Then
+            delete_record()
+            refresh_table()
+            MessageBox.Show("Record successfully moved to Archive!")
+        End If
     End Sub
 
     Private Sub btn_edit_Click(sender As System.Object, e As System.EventArgs) Handles btn_edit.Click
@@ -148,7 +158,47 @@ Public Class uc_teachers
             uc_edit_teacher.txt_lname.Text = NewReader("lname")
             uc_edit_teacher.txt_username.Text = NewReader("username")
             uc_edit_teacher.txt_password.Text = NewReader("password")
+            
+            TeacherId = NewReader("id")
+            TeacherName = NewReader("lname") + ", " + NewReader("fname")
         End While
         MysqlConn.Close()
+    End Sub
+
+    Private Sub delete_record()
+        MysqlConn = New MySqlConnection
+        MysqlConn.ConnectionString =
+            "server=localhost;userid=root;password=dev123;database=grading_system"
+        Dim Reader As MySqlDataReader
+        Try
+            MysqlConn.Open()
+            Dim Query As String
+            Query = "update grading_system.user set is_deleted = 'yes' where id = '" & TeacherId & "' "
+            MyCommand = New MySqlCommand(Query, MysqlConn)
+            Reader = MyCommand.ExecuteReader
+            MysqlConn.Close()
+
+            MysqlConn = New MySqlConnection
+            MysqlConn.ConnectionString =
+                "server=localhost;userid=root;password=dev123;database=grading_system"
+            Dim ArchiveReader As MySqlDataReader
+            Try
+                MysqlConn.Open()
+                Dim ArchiveQuery As String
+                ArchiveQuery = "insert into grading_system.archives (reference_id,reference_keyname,reference,deleted_at) values ('" & TeacherId & "','" & TeacherName & "','teachers', '" & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") & "')"
+                MyCommand = New MySqlCommand(ArchiveQuery, MysqlConn)
+                ArchiveReader = MyCommand.ExecuteReader
+                MysqlConn.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            Finally
+                MysqlConn.Dispose()
+            End Try
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            MysqlConn.Dispose()
+        End Try
     End Sub
 End Class

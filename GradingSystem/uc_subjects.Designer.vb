@@ -237,6 +237,7 @@ Partial Class uc_subjects
         Me.uc_edit_subject.Location = New System.Drawing.Point(12, 140)
         Me.uc_edit_subject.Name = "uc_edit_subject"
         Me.uc_edit_subject.Size = New System.Drawing.Size(763, 370)
+        Me.uc_edit_subject.SubjectId = Nothing
         Me.uc_edit_subject.TabIndex = 1
         '
         'uc_encode_grades_sections

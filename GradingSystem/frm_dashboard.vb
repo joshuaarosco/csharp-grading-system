@@ -17,6 +17,7 @@ Public Class frm_dashboard
         btn_teacher.BackColor = Color.SlateGray
         btn_students.BackColor = Color.SlateGray
         btn_grades.BackColor = Color.SlateGray
+        btn_archives.BackColor = Color.SlateGray
     End Sub
 
     Sub hide_user_controls()
@@ -27,6 +28,7 @@ Public Class frm_dashboard
         uc_teachers.Visible = False
         uc_students.Visible = False
         uc_grades.Visible = False
+        uc_archives.Visible = False
     End Sub
 
     Private Sub frm_dashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -100,6 +102,14 @@ Public Class frm_dashboard
         uc_grades.UserId = UserId
     End Sub
 
+    Private Sub btn_archives_Click(sender As System.Object, e As System.EventArgs) Handles btn_archives.Click
+        UserTypeCondition()
+        txt_name.Text = GlobalClass.get_greetings() + " " + UserFullName
+        hide_user_controls()
+        uc_archives.Visible = True
+        Me.Text = "  Archives"
+    End Sub
+
     Private Sub UserTypeCondition()
         If UserType = "teacher" Then
             btn_courses.Visible = False
@@ -107,6 +117,7 @@ Public Class frm_dashboard
             btn_grades.Visible = False
             btn_students.Visible = False
             btn_year_section.Visible = False
+            btn_archives.Visible = False
             btn_subjects.Location = New Point(0, 91)
         ElseIf UserType = "student" Then
             btn_courses.Visible = False
@@ -114,9 +125,11 @@ Public Class frm_dashboard
             btn_year_section.Visible = False
             btn_students.Visible = False
             btn_subjects.Visible = False
+            btn_archives.Visible = False
             btn_grades.Location = New Point(0, 91)
         Else
             btn_grades.Visible = False
+            btn_archives.Location = New Point(0, 292)
         End If
     End Sub
 

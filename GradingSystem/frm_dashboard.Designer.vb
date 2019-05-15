@@ -38,6 +38,7 @@ Partial Class frm_dashboard
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.pnl_control = New System.Windows.Forms.Panel()
+        Me.btn_archives = New System.Windows.Forms.Button()
         Me.uc_grades = New GradingSystem.uc_grades()
         Me.uc_subjects = New GradingSystem.uc_subjects()
         Me.uc_dashboard = New GradingSystem.uc_dashboard()
@@ -45,6 +46,7 @@ Partial Class frm_dashboard
         Me.uc_courses = New GradingSystem.uc_courses()
         Me.uc_students = New GradingSystem.uc_students()
         Me.uc_teachers = New GradingSystem.uc_teachers()
+        Me.uc_archives = New GradingSystem.uc_archives()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -103,6 +105,7 @@ Partial Class frm_dashboard
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.SlateGray
+        Me.Panel2.Controls.Add(Me.btn_archives)
         Me.Panel2.Controls.Add(Me.btn_grades)
         Me.Panel2.Controls.Add(Me.btn_students)
         Me.Panel2.Controls.Add(Me.btn_teacher)
@@ -247,6 +250,7 @@ Partial Class frm_dashboard
         'pnl_control
         '
         Me.pnl_control.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.pnl_control.Controls.Add(Me.uc_archives)
         Me.pnl_control.Controls.Add(Me.uc_grades)
         Me.pnl_control.Controls.Add(Me.uc_subjects)
         Me.pnl_control.Controls.Add(Me.uc_dashboard)
@@ -258,6 +262,21 @@ Partial Class frm_dashboard
         Me.pnl_control.Name = "pnl_control"
         Me.pnl_control.Size = New System.Drawing.Size(787, 523)
         Me.pnl_control.TabIndex = 2
+        '
+        'btn_archives
+        '
+        Me.btn_archives.BackColor = System.Drawing.Color.SlateGray
+        Me.btn_archives.FlatAppearance.BorderSize = 0
+        Me.btn_archives.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_archives.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_archives.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btn_archives.Location = New System.Drawing.Point(0, 332)
+        Me.btn_archives.Name = "btn_archives"
+        Me.btn_archives.Size = New System.Drawing.Size(180, 40)
+        Me.btn_archives.TabIndex = 28
+        Me.btn_archives.Text = "     Archives"
+        Me.btn_archives.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_archives.UseVisualStyleBackColor = False
         '
         'uc_grades
         '
@@ -331,6 +350,15 @@ Partial Class frm_dashboard
         Me.uc_teachers.Size = New System.Drawing.Size(787, 523)
         Me.uc_teachers.TabIndex = 4
         '
+        'uc_archives
+        '
+        Me.uc_archives.BackColor = System.Drawing.SystemColors.Control
+        Me.uc_archives.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.uc_archives.Location = New System.Drawing.Point(0, 0)
+        Me.uc_archives.Name = "uc_archives"
+        Me.uc_archives.Size = New System.Drawing.Size(787, 523)
+        Me.uc_archives.TabIndex = 7
+        '
         'frm_dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -377,4 +405,6 @@ Partial Class frm_dashboard
     Friend WithEvents uc_grades As GradingSystem.uc_grades
     Friend WithEvents btn_logout As System.Windows.Forms.Button
     Friend WithEvents btn_password_setting As System.Windows.Forms.Button
+    Friend WithEvents btn_archives As System.Windows.Forms.Button
+    Friend WithEvents uc_archives As GradingSystem.uc_archives
 End Class

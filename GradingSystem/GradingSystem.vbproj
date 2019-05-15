@@ -108,6 +108,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="uc_archives.Designer.vb">
+      <DependentUpon>uc_archives.vb</DependentUpon>
+    </Compile>
+    <Compile Include="uc_archives.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="uc_courses.Designer.vb">
       <DependentUpon>uc_courses.vb</DependentUpon>
     </Compile>
@@ -238,6 +244,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_archives.resx">
+      <DependentUpon>uc_archives.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uc_courses.resx">
       <DependentUpon>uc_courses.vb</DependentUpon>
